@@ -47,7 +47,7 @@ int main()
         return -1;
     }
 
-    sleep(5);
+    //sleep(5);
     if (ret = pthread_create(&id2, NULL, &thr_handle, &data))
     {
         printf("pthread_create %d\n", ret);
