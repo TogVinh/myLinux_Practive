@@ -52,12 +52,14 @@ int main()
     double time_taken = (double)(end1 - begin1) / CLOCKS_PER_SEC;
     printf("\n \nfunction took %f seconds to execute \n", 
            time_taken);
-    free(a);
-    free(b);
-    free(result);
+//    free(a);
+//    free(b);
+//    free(result);
 
     r1 = 10000, c1 = 10000, r2 = 10000, c2 = 10000;
-printf("\n run second one for %d \n",r1);
+	printf("\n run second one for %d \n",r1);
+	
+	
     // Storing elements of first matrix.
     for (i = 0; i < r1; ++i)
     {
@@ -97,8 +99,8 @@ printf("\n run second one for %d \n",r1);
 
     end1 = clock();
     time_taken = (double)(end1 - begin1) / CLOCKS_PER_SEC;
-    printf("\n second function took %f seconds to execute \n", 
-           time_taken);
+    
+    printf("\n second function took %f seconds to execute \n", time_taken);
     free(a);
     free(b);
     free(result);
