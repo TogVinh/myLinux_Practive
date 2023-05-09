@@ -3,23 +3,31 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
+void func(int signum)
+{
+    printf("i am in func \n");
+    wait(NULL);
+}
+
 int main(int argc, char *argv[])
 {
     pid_t child;
-    int status;
-    int counter = 0;
     
     child = fork();
+
     if (child >= 0)
     {
         if (0 == child)
         {
-            printf("child process terminatation\n");
+            printf("child process\n");
+            while(1);
         }
         else
         {
             /*se tao ra zombie*/
-            //while(1);
+            signal(SIGCHLD, func);
+            printf("Parent\n");
+            while(1);
 
             /*han che ra zombie*/
             //wait(&status);
@@ -27,7 +35,7 @@ int main(int argc, char *argv[])
         }
     }
     else{
-        printf("forl Unsucessful\n");
+        printf("fork Unsucessful\n");
     }
     return 0;
 }
